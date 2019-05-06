@@ -11992,7 +11992,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(15);
-module.exports = __webpack_require__(81);
+module.exports = __webpack_require__(86);
 
 
 /***/ }),
@@ -12004,7 +12004,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__routes_js__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__store_js__ = __webpack_require__(75);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__store_js__ = __webpack_require__(80);
 window._ = __webpack_require__(16);
 
 try {
@@ -29230,18 +29230,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ResponsiveAccordionTabs", function() { return ResponsiveAccordionTabs; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_jquery__);
-var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
 
 
 function _typeof(obj) {
-  if (typeof Symbol === "function" && _typeof2(Symbol.iterator) === "symbol") {
-    _typeof = function _typeof(obj) {
-      return typeof obj === "undefined" ? "undefined" : _typeof2(obj);
+  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
+    _typeof = function (obj) {
+      return typeof obj;
     };
   } else {
-    _typeof = function _typeof(obj) {
-      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj === "undefined" ? "undefined" : _typeof2(obj);
+    _typeof = function (obj) {
+      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
     };
   }
 
@@ -29310,7 +29308,7 @@ function _assertThisInitialized(self) {
 }
 
 function _possibleConstructorReturn(self, call) {
-  if (call && ((typeof call === "undefined" ? "undefined" : _typeof2(call)) === "object" || typeof call === "function")) {
+  if (call && (typeof call === "object" || typeof call === "function")) {
     return call;
   }
 
@@ -29363,6 +29361,7 @@ function rtl() {
  * @returns {String} - unique id
  */
 
+
 function GetYoDigits(length, namespace) {
   length = length || 6;
   return Math.round(Math.pow(36, length + 1) - Math.random() * Math.pow(36, length)).toString(36).slice(1) + (namespace ? "-".concat(namespace) : '');
@@ -29375,6 +29374,7 @@ function GetYoDigits(length, namespace) {
  * @param {String} str - string to escape.
  * @returns {String} - escaped string
  */
+
 
 function RegExpEscape(str) {
   return str.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
@@ -29418,6 +29418,7 @@ function transitionend($elem) {
  * @returns {String} - event type that should or will be triggered.
  */
 
+
 function onLoad($elem, handler) {
   var didLoad = document.readyState === 'complete';
   var eventType = (didLoad ? '_didLoad' : 'load') + '.zf.util.onLoad';
@@ -29451,6 +29452,7 @@ function onLoad($elem, handler) {
  * - {Boolean} [false] ignoreReappear - also ignore when the mouse reappeared outside of the element it left.
  * @returns {Function} - filtered handler to use to listen on the `mouseleave` event.
  */
+
 
 function ignoreMousedisappear(handler) {
   var _ref = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {},
@@ -29772,6 +29774,7 @@ var Foundation = {
      * @event Plugin#init
      */
 
+
     plugin.$element.trigger("init.zf.".concat(pluginName));
 
     this._uuids.push(plugin.uuid);
@@ -30008,6 +30011,7 @@ window.Foundation = Foundation; // Polyfill for requestAnimationFrame
    * Polyfill for performance.now, required by rAF
    */
 
+
   if (!window.performance || !window.performance.now) {
     window.performance = {
       start: Date.now(),
@@ -30134,6 +30138,7 @@ function OverlapArea(element, parent, lrOnly, tbOnly, ignoreBottom) {
  * TODO - if element is window, return only those values.
  */
 
+
 function GetDimensions(elem) {
   elem = elem.length ? elem[0] : elem;
 
@@ -30185,6 +30190,7 @@ function GetDimensions(elem) {
  * @param {Boolean} isOverflow - if a collision event is detected, sets to true to default the element to full width - any desired offset.
  * TODO alter/rewrite to work with `em` values as well/instead of pixels
  */
+
 
 function GetOffsets(element, anchor, position, vOffset, hOffset, isOverflow) {
   console.log("NOTE: GetOffsets is deprecated in favor of GetExplicitOffsets and will be removed in 6.5");
@@ -30564,6 +30570,7 @@ function Move(duration, elem, fn) {
  * @param {Function} cb - Callback to run when animation is finished.
  */
 
+
 function animate(isIn, element, animation, cb) {
   element = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(element).eq(0);
   if (!element.length) return;
@@ -30661,8 +30668,7 @@ var Nest = {
 function Timer(elem, options, cb) {
   var _this = this,
       duration = options.duration,
-
-  //options is an object for easily adding features later.
+      //options is an object for easily adding features later.
   nameSpace = Object.keys(elem.data())[0] || 'timer',
       remain = -1,
       start,
@@ -30686,6 +30692,7 @@ function Timer(elem, options, cb) {
     timer = setTimeout(function () {
       if (options.infinite) {
         _this.restart(); //rerun the timer.
+
       }
 
       if (cb && typeof cb === 'function') {
@@ -30819,12 +30826,14 @@ function () {
  * values, and do not add event handlers directly.  *
  ****************************************************/
 
+
 Touch.setupSpotSwipe = function ($$$1) {
   $$$1.spotSwipe = new SpotSwipe($$$1);
 };
 /****************************************************
  * Method for adding pseudo drag events to elements *
  ***************************************************/
+
 
 Touch.setupTouchHandler = function ($$$1) {
   $$$1.fn.addTouch = function () {
@@ -31169,6 +31178,7 @@ function () {
      * Fires when the plugin has initialized.
      * @event Plugin#init
      */
+
 
     this.$element.trigger("init.zf.".concat(pluginName));
   }
@@ -31811,6 +31821,7 @@ function (_Plugin) {
  * Default settings for plugin
  */
 
+
 Abide.defaults = {
   /**
    * The default event to validate inputs. Checkboxes and radios validate immediately.
@@ -32064,6 +32075,7 @@ function (_Plugin) {
            * Fires when the plugin has deeplinked at pageload
            * @event Accordion#deeplink
            */
+
 
           _this2.$element.trigger('deeplink.zf.accordion', [$link, $anchor]);
         }
@@ -33284,6 +33296,7 @@ function (_Plugin) {
        * @event Drilldown#open
        */
 
+
       this.$element.trigger('open.zf.drilldown', [$elem]);
     }
     /**
@@ -34034,6 +34047,7 @@ function (_Positionable) {
        * @event Dropdown#show
        */
 
+
       this.$element.trigger('show.zf.dropdown', [this.$element]);
     }
     /**
@@ -34573,6 +34587,7 @@ function (_Plugin) {
        * @event Dropdownmenu#show
        */
 
+
       this.$element.trigger('show.zf.dropdownmenu', [$sub]);
     }
     /**
@@ -34616,6 +34631,7 @@ function (_Plugin) {
          * @event Dropdownmenu#hide
          */
 
+
         this.$element.trigger('hide.zf.dropdownmenu', [$toClose]);
       }
     }
@@ -34638,6 +34654,7 @@ function (_Plugin) {
 /**
  * Default settings for plugin
  */
+
 
 DropdownMenu.defaults = {
   /**
@@ -35046,6 +35063,7 @@ function (_Plugin) {
           * @event Equalizer#preequalizedrow
           */
 
+
         this.$element.trigger('preequalizedrow.zf.equalizer');
 
         for (var j = 0, lenJ = groupsILength - 1; j < lenJ; j++) {
@@ -35058,11 +35076,13 @@ function (_Plugin) {
           * @event Equalizer#postequalizedrow
           */
 
+
         this.$element.trigger('postequalizedrow.zf.equalizer');
       }
       /**
        * Fires when the heights have been applied
        */
+
 
       this.$element.trigger('postequalized.zf.equalizer');
     }
@@ -35085,6 +35105,7 @@ function (_Plugin) {
 /**
  * Default settings for plugin
  */
+
 
 Equalizer.defaults = {
   /**
@@ -35311,6 +35332,7 @@ function (_Plugin) {
        * @event Interchange#replaced
        */
       // this.$element.trigger('replaced.zf.interchange');
+
     }
     /**
      * Destroys an instance of interchange.
@@ -35329,6 +35351,7 @@ function (_Plugin) {
 /**
  * Default settings for plugin
  */
+
 
 Interchange.defaults = {
   /**
@@ -35471,6 +35494,7 @@ function (_Plugin) {
 /**
  * Default settings for plugin.
  */
+
 
 SmoothScroll.defaults = {
   /**
@@ -35767,6 +35791,7 @@ function (_Plugin) {
 /**
  * Default settings for plugin
  */
+
 
 Magellan.defaults = {
   /**
@@ -36201,6 +36226,7 @@ function (_Plugin) {
        * @event Offcanvas#opened
        */
 
+
       this.$element.trigger('opened.zf.offcanvas');
     }
     /**
@@ -36507,6 +36533,7 @@ function (_Plugin) {
         onImagesLoaded($images, this._prepareForOrbit.bind(this));
       } else {
         this._prepareForOrbit(); //hehe
+
       }
 
       if (this.options.bullets) {
@@ -36603,6 +36630,7 @@ function (_Plugin) {
         if (cb) {
           cb(max);
         } //fire callback with max height dimension.
+
       }
     }
     /**
@@ -36815,6 +36843,7 @@ function (_Plugin) {
             if (_this.options.autoPlay && !_this.timer.isPaused) {
               _this.timer.restart();
             } //do stuff?
+
           });
         } else {
           $curSlide.removeClass('is-active is-in').removeAttr('aria-live').hide();
@@ -36828,6 +36857,7 @@ function (_Plugin) {
         * Triggers when the slide has finished animating in.
         * @event Orbit#slidechange
         */
+
 
         this.$element.trigger('slidechange.zf.orbit', [$newSlide]);
       }
@@ -37701,6 +37731,7 @@ function (_Plugin) {
        * @event Reveal#open
        */
 
+
       this.$element.trigger('open.zf.reveal');
     }
     /**
@@ -37831,6 +37862,7 @@ function (_Plugin) {
 
         if (__WEBPACK_IMPORTED_MODULE_0_jquery___default()('.reveal:visible').length === 0) {
           _this._removeGlobalClasses(); // also remove .is-reveal-open from the html element when there is no opened reveal
+
         }
 
         Keyboard.releaseFocus(_this.$element);
@@ -37843,12 +37875,14 @@ function (_Plugin) {
         * @event Reveal#closed
         */
 
+
         _this.$element.trigger('closed.zf.reveal');
       }
       /**
       * Resets the modal content
       * This prevents a running video to keep going in the background
       */
+
 
       if (this.options.resetOnClose) {
         this.$element.html(this.$element.html());
@@ -37908,6 +37942,7 @@ function (_Plugin) {
 
       if (__WEBPACK_IMPORTED_MODULE_0_jquery___default()('.reveal:visible').length === 0) {
         this._removeGlobalClasses(); // also remove .is-reveal-open from the html element when there is no opened reveal
+
       }
     }
   }]);
@@ -38289,14 +38324,11 @@ function (_Plugin) {
           lOrT = vert ? 'top' : 'left',
           handleDim = $hndl[0].getBoundingClientRect()[hOrW],
           elemDim = this.$element[0].getBoundingClientRect()[hOrW],
-
-      //percentage of bar min/max value based on click or drag point
+          //percentage of bar min/max value based on click or drag point
       pctOfBar = this._pctOfBar(location),
-
-      //number of actual pixels to shift the handle, based on the percentage obtained above
+          //number of actual pixels to shift the handle, based on the percentage obtained above
       pxToMove = (elemDim - handleDim) * pctOfBar,
-
-      //percentage of bar to shift the handle
+          //percentage of bar to shift the handle
       movement = (percent(pxToMove, elemDim) * 100).toFixed(this.options.decimal); //fixing the decimal value for the location number, is passed to other methods as a fixed floating-point value
 
 
@@ -38309,11 +38341,9 @@ function (_Plugin) {
 
       if (isDbl) {
         var isLeftHndl = this.handles.index($hndl) === 0,
-
-        //empty variable, will be used for min-height/width for fill bar
+            //empty variable, will be used for min-height/width for fill bar
         dim,
-
-        //percentage w/h of the handle compared to the slider bar
+            //percentage w/h of the handle compared to the slider bar
         handlePct = ~~(percent(handleDim, elemDim) * 100); //if left handle, the math is slightly different than if it's the right handle, and the left/top property needs to be changed for the fill bar
 
         if (isLeftHndl) {
@@ -38326,6 +38356,7 @@ function (_Plugin) {
           if (cb && typeof cb === 'function') {
             cb();
           } //this is only needed for the initialization of 2 handled sliders
+
         } else {
           //just caching the value of the left/bottom handle's left/top property
           var handlePos = parseFloat(this.$handle[0].style[lOrT]); //calculate the new min-height/width for the fill bar. Use isNaN to prevent false positives for numbers <= 0
@@ -39264,8 +39295,7 @@ function (_Plugin) {
           mBtm = emCalc(this.options.marginBottom),
           topPoint = this.points ? this.points[0] : this.$anchor.offset().top,
           bottomPoint = this.points ? this.points[1] : topPoint + this.anchorHeight,
-
-      // topPoint = this.$anchor.offset().top || this.points[0],
+          // topPoint = this.$anchor.offset().top || this.points[0],
       // bottomPoint = topPoint + this.anchorHeight || this.points[1],
       winHeight = window.innerHeight;
 
@@ -39576,6 +39606,7 @@ function (_Plugin) {
            * @event Tabs#deeplink
            */
 
+
           _this2.$element.trigger('deeplink.zf.tabs', [$link, $anchor]);
         }
       }; //use browser to open a tab, if it exists in this tabset
@@ -39726,6 +39757,7 @@ function (_Plugin) {
        * @event Tabs#change
        */
 
+
       this.$element.trigger('change.zf.tabs', [$target, $targetContent]); //fire to children a mutation event
 
       $targetContent.find("[data-mutate]").trigger("mutateme.zf.trigger");
@@ -39783,6 +39815,7 @@ function (_Plugin) {
         * Fires when the plugin has successfully collapsed tabs.
         * @event Tabs#collapse
         */
+
 
         this.$element.trigger('collapse.zf.tabs', [$activeTab]);
       }
@@ -40396,7 +40429,7 @@ function (_Positionable) {
         this.$element.on('mousedown.zf.tooltip', function (e) {
           e.stopImmediatePropagation();
 
-          if (_this.isClick) ;else {
+          if (_this.isClick) ; else {
             _this.isClick = true;
 
             if ((_this.options.disableHover || !_this.$element.attr('tabindex')) && !_this.isActive) {
@@ -40960,6 +40993,7 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
 /* harmony default export */ __webpack_exports__["default"] = (Foundation);
 
 //# sourceMappingURL=foundation.esm.js.map
+
 
 /***/ }),
 /* 19 */
@@ -54103,11 +54137,11 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_
         }, {
             path: 'cafes/new',
             name: 'newcafe',
-            component: __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('NewCafe', __webpack_require__(64))
+            component: __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('NewCafe', __webpack_require__(69))
         }, {
             path: 'cafes/:id',
             name: 'cafe',
-            component: __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('Cafe', __webpack_require__(70))
+            component: __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('Cafe', __webpack_require__(75))
         }]
     }]
 }));
@@ -56852,7 +56886,7 @@ var content = __webpack_require__(45);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("e6ea095e", content, false, {});
+var update = __webpack_require__(2)("761092eb", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -57007,7 +57041,7 @@ var content = __webpack_require__(50);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("6a844ac6", content, false, {});
+var update = __webpack_require__(2)("203887aa", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -57271,7 +57305,7 @@ var content = __webpack_require__(56);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("351bbf7e", content, false, {});
+var update = __webpack_require__(2)("8a66534a", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -57419,7 +57453,7 @@ var normalizeComponent = __webpack_require__(3)
 /* script */
 var __vue_script__ = __webpack_require__(62)
 /* template */
-var __vue_template__ = __webpack_require__(63)
+var __vue_template__ = __webpack_require__(68)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -57468,7 +57502,7 @@ var content = __webpack_require__(61);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("92e9253c", content, false, {});
+var update = __webpack_require__(2)("e6f10af0", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -57503,6 +57537,15 @@ exports.push([module.i, "\n\n", ""]);
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_cafes_CafeMap_vue__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_cafes_CafeMap_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_cafes_CafeMap_vue__);
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -57514,17 +57557,242 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
-/* harmony default export */ __webpack_exports__["default"] = ({});
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    components: {
+        CafeMap: __WEBPACK_IMPORTED_MODULE_0__components_cafes_CafeMap_vue___default.a
+    }
+});
 
 /***/ }),
 /* 63 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(64)
+}
+var normalizeComponent = __webpack_require__(3)
+/* script */
+var __vue_script__ = __webpack_require__(66)
+/* template */
+var __vue_template__ = __webpack_require__(67)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/cafes/CafeMap.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-1dd0d03f", Component.options)
+  } else {
+    hotAPI.reload("data-v-1dd0d03f", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 64 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(65);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(2)("479c679c", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-1dd0d03f\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./CafeMap.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-1dd0d03f\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./CafeMap.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 65 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(1)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\ndiv#cafe-map {\n  width: 100%;\n  height: 400px;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 66 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    props: {
+        'latitude': { // 经度
+            type: Number,
+            default: function _default() {
+                return 120.21;
+            }
+        },
+        'longitude': { // 纬度
+            type: Number,
+            default: function _default() {
+                return 30.29;
+            }
+        },
+        'zoom': { // 缩放级别
+            type: Number,
+            default: function _default() {
+                return 4;
+            }
+        }
+    },
+    data: function data() {
+        return {
+            markers: []
+        };
+    },
+    mounted: function mounted() {
+        // 清除并重构点标记
+        this.clearMarkers();
+        this.buildMarkers();
+        this.map = new AMap.Map('cafe-map', {
+            center: [this.latitude, this.longitude],
+            zoom: this.zoom
+        });
+    },
+
+    computed: {
+        cafes: function cafes() {
+            return this.$store.getters.getCafes;
+        }
+    },
+    methods: {
+        // 为所有咖啡店创建点标记
+        buildMarkers: function buildMarkers() {
+            // 清空点标记数组
+            this.markers = [];
+
+            // 遍历所有咖啡店并为每个咖啡店创建点标记
+            for (var i = 0; i < this.cafes.length; i++) {
+
+                // 通过高德地图 API 为每个咖啡店创建点标记并设置经纬度
+                var marker = new new AMap.LngLat(parseFloat(this.cafes[i].latitude), parseFloat(this.cafes[i].longitude))();
+
+                // 将每个点标记放到点标记数组中
+                this.markers.push(marker);
+            }
+
+            // 将所有点标记显示到地图上
+            this.map.add(this.markers);
+        },
+
+        // 从地图上清理点标记
+        clearMarkers: function clearMarkers() {
+            // 遍历所有点标记并将其设置为 null 从而从地图上将其清除
+            for (var i = 0; i < this.markers.length; i++) {
+                this.markers[i].setMap(null);
+            }
+        }
+    },
+    watch: {
+        // 一旦 cafes 有更新立即重构地图点标记
+        cafes: function cafes() {
+            this.clearMarkers();
+            this.buildMarkers();
+        }
+    }
+});
+
+/***/ }),
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _c("div", { attrs: { id: "cafe-map" } })
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-1dd0d03f", module.exports)
+  }
+}
+
+/***/ }),
+/* 68 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { attrs: { id: "cafes" } }, [
+    _c("div", { staticClass: "grid-x" }, [
+      _c(
+        "div",
+        { staticClass: "large-9 medium-9 small-12 cell" },
+        [_c("cafe-map")],
+        1
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "large-3 medium-3 small-12 cell" })
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -57537,19 +57805,19 @@ if (false) {
 }
 
 /***/ }),
-/* 64 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(65)
+  __webpack_require__(70)
 }
 var normalizeComponent = __webpack_require__(3)
 /* script */
-var __vue_script__ = __webpack_require__(68)
+var __vue_script__ = __webpack_require__(73)
 /* template */
-var __vue_template__ = __webpack_require__(69)
+var __vue_template__ = __webpack_require__(74)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -57588,17 +57856,17 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 65 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(66);
+var content = __webpack_require__(71);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("6bb5069d", content, false, {});
+var update = __webpack_require__(2)("9a3b3b7a", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -57614,12 +57882,12 @@ if(false) {
 }
 
 /***/ }),
-/* 66 */
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(false);
 // imports
-exports.i(__webpack_require__(67), "");
+exports.i(__webpack_require__(72), "");
 
 // module
 exports.push([module.i, "\n", ""]);
@@ -57628,7 +57896,7 @@ exports.push([module.i, "\n", ""]);
 
 
 /***/ }),
-/* 67 */
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(false);
@@ -57636,13 +57904,13 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\nspan.validation{\n  color: red;\n  display: block;\n}", ""]);
+exports.push([module.i, "\r\nspan.validation{\r\n  color: red;\r\n  display: block;\r\n}", ""]);
 
 // exports
 
 
 /***/ }),
-/* 68 */
+/* 73 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -57803,7 +58071,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 69 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -58054,19 +58322,19 @@ if (false) {
 }
 
 /***/ }),
-/* 70 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(71)
+  __webpack_require__(76)
 }
 var normalizeComponent = __webpack_require__(3)
 /* script */
-var __vue_script__ = __webpack_require__(73)
+var __vue_script__ = __webpack_require__(78)
 /* template */
-var __vue_template__ = __webpack_require__(74)
+var __vue_template__ = __webpack_require__(79)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -58105,17 +58373,17 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 71 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(72);
+var content = __webpack_require__(77);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("734f2b79", content, false, {});
+var update = __webpack_require__(2)("48a9e193", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -58131,7 +58399,7 @@ if(false) {
 }
 
 /***/ }),
-/* 72 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(false);
@@ -58145,7 +58413,7 @@ exports.push([module.i, "\n\n", ""]);
 
 
 /***/ }),
-/* 73 */
+/* 78 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -58164,7 +58432,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
-/* 74 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -58184,18 +58452,18 @@ if (false) {
 }
 
 /***/ }),
-/* 75 */
+/* 80 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuex__ = __webpack_require__(77);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__modules_cafes_js__ = __webpack_require__(78);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuex__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__modules_cafes_js__ = __webpack_require__(83);
 /**
  * Adds the promise polyfill for IE 11
  */
-__webpack_require__(76).polyfill();
+__webpack_require__(81).polyfill();
 
 /**
  * Import Vue and Vuex
@@ -58224,7 +58492,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex
 }));
 
 /***/ }),
-/* 76 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(process, global) {/*!
@@ -59414,7 +59682,7 @@ return Promise$1;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6), __webpack_require__(4)))
 
 /***/ }),
-/* 77 */
+/* 82 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -60427,12 +60695,12 @@ var index_esm = {
 
 
 /***/ }),
-/* 78 */
+/* 83 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return cafes; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__api_cafe_js__ = __webpack_require__(79);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__api_cafe_js__ = __webpack_require__(84);
 /*
 |-------------------------------------------------------------------------------
 | VUEX modules/cafes.js
@@ -60530,11 +60798,11 @@ var cafes = {
 };
 
 /***/ }),
-/* 79 */
+/* 84 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__config_js__ = __webpack_require__(80);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__config_js__ = __webpack_require__(85);
 
 /* harmony default export */ __webpack_exports__["a"] = ({
     getCafes: function getCafes() {
@@ -60557,7 +60825,7 @@ var cafes = {
 });
 
 /***/ }),
-/* 80 */
+/* 85 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -60577,11 +60845,12 @@ switch ("development") {
 }
 
 var ROAST_CONFIG = {
-    API_URL: api_url
+    API_URL: api_url,
+    GAODE_MAPS_JS_API_KEY: 'a6c09be7b98c9fd055a5bb92fa9b61bb'
 };
 
 /***/ }),
-/* 81 */
+/* 86 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

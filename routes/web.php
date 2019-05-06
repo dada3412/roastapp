@@ -18,3 +18,6 @@ Auth::routes();
 
 Route::get('/', 'Web\AppController@getApp')
     ->middleware('auth');
+Route::get('geocode', function () {
+    return \App\Utilities\GaodeMaps::geocodeAddress('天城路1号', '杭州', '浙江');
+});

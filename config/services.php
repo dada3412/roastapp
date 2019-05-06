@@ -35,4 +35,8 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    'gaode' => [
+        'ws_api_key' => env('GAODE_MAPS_WS_API_KEY'),
+    ]
+
 ];
