@@ -12,6 +12,7 @@
 </template>
 
 <script>
+    import {ROAST_CONFIG} from '../../config.js';
     export default {
         props: {
             'latitude': {  // 经度
@@ -35,17 +36,18 @@
         },
         data() {
             return {
-                markers: []
+                markers: [],
+                infoWindows: []
             }
         },
         mounted() {
-            // 清除并重构点标记
-            this.clearMarkers();
-            this.buildMarkers();
             this.map = new AMap.Map('cafe-map', {
                 center: [this.latitude, this.longitude],
                 zoom: this.zoom
             });
+            // 清除并重构点标记
+            this.clearMarkers();
+            this.buildMarkers();
         },
         computed: {
             cafes(){
@@ -55,16 +57,38 @@
         methods: {
             // 为所有咖啡店创建点标记
             buildMarkers() {
-                // 清空点标记数组
+                // 初始化点标记数组
                 this.markers = [];
+                // 自定义点标记图标
+                var image = ROAST_CONFIG.APP_URL + '/storage/img/coffee-marker.png';
+                var icon = new AMap.Icon({
+                    image: image,  // 图像 URL
+                    imageSize: new AMap.Size(19, 33)  // 设置图标尺寸
+                });
 
-                // 遍历所有咖啡店并为每个咖啡店创建点标记
+                // 遍历所有咖啡店创建点标记
                 for (var i = 0; i < this.cafes.length; i++) {
 
-                    // 通过高德地图 API 为每个咖啡店创建点标记并设置经纬度
-                    var marker = new new AMap.LngLat(parseFloat(this.cafes[i].latitude), parseFloat(this.cafes[i].longitude));
+                    // 为每个咖啡店创建点标记
+                    var marker = new AMap.Marker({
+                        position: AMap.LngLat(parseFloat(this.cafes[i].latitude), parseFloat(this.cafes[i].longitude)),
+                        title: this.cafes[i].name,
+                        icon: icon,
+                        map: this.map
+                    });
 
-                    // 将每个点标记放到点标记数组中
+                    // 为每个咖啡店创建信息窗体
+                    var infoWindow = new AMap.InfoWindow({
+                        content: this.cafes[i].name
+                    });
+                    this.infoWindows.push(infoWindow);
+
+                    // 绑定点击事件到点标记对象，点击打开上面创建的信息窗体
+                    marker.on('click', function () {
+                        infoWindow.open(this.getMap(), this.getPosition());
+                    });
+
+                    // 将点标记放到数组中
                     this.markers.push(marker);
                 }
 

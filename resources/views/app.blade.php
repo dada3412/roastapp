@@ -10,7 +10,7 @@
 
     <title>Roast</title>
 
-    <script src="https://webapi.amap.com/maps?v=1.4.8&key=a6c09be7b98c9fd055a5bb92fa9b61bb"></script>
+    <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.14&key=a6c09be7b98c9fd055a5bb92fa9b61bb"></script>
     <script type='text/javascript'>
         window.Laravel = <?php echo json_encode([
             'csrfToken' => csrf_token(),
