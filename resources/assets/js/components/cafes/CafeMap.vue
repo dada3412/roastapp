@@ -71,7 +71,7 @@
 
                     // 为每个咖啡店创建点标记
                     var marker = new AMap.Marker({
-                        position: AMap.LngLat(parseFloat(this.cafes[i].latitude), parseFloat(this.cafes[i].longitude)),
+                        position: new AMap.LngLat(parseFloat(this.cafes[i].latitude), parseFloat(this.cafes[i].longitude)),
                         title: this.cafes[i].name,
                         icon: icon,
                         map: this.map

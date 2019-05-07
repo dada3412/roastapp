@@ -29259,18 +29259,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ResponsiveAccordionTabs", function() { return ResponsiveAccordionTabs; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_jquery__);
-var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
 
 
 function _typeof(obj) {
-  if (typeof Symbol === "function" && _typeof2(Symbol.iterator) === "symbol") {
-    _typeof = function _typeof(obj) {
-      return typeof obj === "undefined" ? "undefined" : _typeof2(obj);
+  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
+    _typeof = function (obj) {
+      return typeof obj;
     };
   } else {
-    _typeof = function _typeof(obj) {
-      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj === "undefined" ? "undefined" : _typeof2(obj);
+    _typeof = function (obj) {
+      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
     };
   }
 
@@ -29339,7 +29337,7 @@ function _assertThisInitialized(self) {
 }
 
 function _possibleConstructorReturn(self, call) {
-  if (call && ((typeof call === "undefined" ? "undefined" : _typeof2(call)) === "object" || typeof call === "function")) {
+  if (call && (typeof call === "object" || typeof call === "function")) {
     return call;
   }
 
@@ -29392,6 +29390,7 @@ function rtl() {
  * @returns {String} - unique id
  */
 
+
 function GetYoDigits(length, namespace) {
   length = length || 6;
   return Math.round(Math.pow(36, length + 1) - Math.random() * Math.pow(36, length)).toString(36).slice(1) + (namespace ? "-".concat(namespace) : '');
@@ -29404,6 +29403,7 @@ function GetYoDigits(length, namespace) {
  * @param {String} str - string to escape.
  * @returns {String} - escaped string
  */
+
 
 function RegExpEscape(str) {
   return str.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
@@ -29447,6 +29447,7 @@ function transitionend($elem) {
  * @returns {String} - event type that should or will be triggered.
  */
 
+
 function onLoad($elem, handler) {
   var didLoad = document.readyState === 'complete';
   var eventType = (didLoad ? '_didLoad' : 'load') + '.zf.util.onLoad';
@@ -29480,6 +29481,7 @@ function onLoad($elem, handler) {
  * - {Boolean} [false] ignoreReappear - also ignore when the mouse reappeared outside of the element it left.
  * @returns {Function} - filtered handler to use to listen on the `mouseleave` event.
  */
+
 
 function ignoreMousedisappear(handler) {
   var _ref = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {},
@@ -29801,6 +29803,7 @@ var Foundation = {
      * @event Plugin#init
      */
 
+
     plugin.$element.trigger("init.zf.".concat(pluginName));
 
     this._uuids.push(plugin.uuid);
@@ -30037,6 +30040,7 @@ window.Foundation = Foundation; // Polyfill for requestAnimationFrame
    * Polyfill for performance.now, required by rAF
    */
 
+
   if (!window.performance || !window.performance.now) {
     window.performance = {
       start: Date.now(),
@@ -30163,6 +30167,7 @@ function OverlapArea(element, parent, lrOnly, tbOnly, ignoreBottom) {
  * TODO - if element is window, return only those values.
  */
 
+
 function GetDimensions(elem) {
   elem = elem.length ? elem[0] : elem;
 
@@ -30214,6 +30219,7 @@ function GetDimensions(elem) {
  * @param {Boolean} isOverflow - if a collision event is detected, sets to true to default the element to full width - any desired offset.
  * TODO alter/rewrite to work with `em` values as well/instead of pixels
  */
+
 
 function GetOffsets(element, anchor, position, vOffset, hOffset, isOverflow) {
   console.log("NOTE: GetOffsets is deprecated in favor of GetExplicitOffsets and will be removed in 6.5");
@@ -30593,6 +30599,7 @@ function Move(duration, elem, fn) {
  * @param {Function} cb - Callback to run when animation is finished.
  */
 
+
 function animate(isIn, element, animation, cb) {
   element = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(element).eq(0);
   if (!element.length) return;
@@ -30690,8 +30697,7 @@ var Nest = {
 function Timer(elem, options, cb) {
   var _this = this,
       duration = options.duration,
-
-  //options is an object for easily adding features later.
+      //options is an object for easily adding features later.
   nameSpace = Object.keys(elem.data())[0] || 'timer',
       remain = -1,
       start,
@@ -30715,6 +30721,7 @@ function Timer(elem, options, cb) {
     timer = setTimeout(function () {
       if (options.infinite) {
         _this.restart(); //rerun the timer.
+
       }
 
       if (cb && typeof cb === 'function') {
@@ -30848,12 +30855,14 @@ function () {
  * values, and do not add event handlers directly.  *
  ****************************************************/
 
+
 Touch.setupSpotSwipe = function ($$$1) {
   $$$1.spotSwipe = new SpotSwipe($$$1);
 };
 /****************************************************
  * Method for adding pseudo drag events to elements *
  ***************************************************/
+
 
 Touch.setupTouchHandler = function ($$$1) {
   $$$1.fn.addTouch = function () {
@@ -31198,6 +31207,7 @@ function () {
      * Fires when the plugin has initialized.
      * @event Plugin#init
      */
+
 
     this.$element.trigger("init.zf.".concat(pluginName));
   }
@@ -31840,6 +31850,7 @@ function (_Plugin) {
  * Default settings for plugin
  */
 
+
 Abide.defaults = {
   /**
    * The default event to validate inputs. Checkboxes and radios validate immediately.
@@ -32093,6 +32104,7 @@ function (_Plugin) {
            * Fires when the plugin has deeplinked at pageload
            * @event Accordion#deeplink
            */
+
 
           _this2.$element.trigger('deeplink.zf.accordion', [$link, $anchor]);
         }
@@ -33313,6 +33325,7 @@ function (_Plugin) {
        * @event Drilldown#open
        */
 
+
       this.$element.trigger('open.zf.drilldown', [$elem]);
     }
     /**
@@ -34063,6 +34076,7 @@ function (_Positionable) {
        * @event Dropdown#show
        */
 
+
       this.$element.trigger('show.zf.dropdown', [this.$element]);
     }
     /**
@@ -34602,6 +34616,7 @@ function (_Plugin) {
        * @event Dropdownmenu#show
        */
 
+
       this.$element.trigger('show.zf.dropdownmenu', [$sub]);
     }
     /**
@@ -34645,6 +34660,7 @@ function (_Plugin) {
          * @event Dropdownmenu#hide
          */
 
+
         this.$element.trigger('hide.zf.dropdownmenu', [$toClose]);
       }
     }
@@ -34667,6 +34683,7 @@ function (_Plugin) {
 /**
  * Default settings for plugin
  */
+
 
 DropdownMenu.defaults = {
   /**
@@ -35075,6 +35092,7 @@ function (_Plugin) {
           * @event Equalizer#preequalizedrow
           */
 
+
         this.$element.trigger('preequalizedrow.zf.equalizer');
 
         for (var j = 0, lenJ = groupsILength - 1; j < lenJ; j++) {
@@ -35087,11 +35105,13 @@ function (_Plugin) {
           * @event Equalizer#postequalizedrow
           */
 
+
         this.$element.trigger('postequalizedrow.zf.equalizer');
       }
       /**
        * Fires when the heights have been applied
        */
+
 
       this.$element.trigger('postequalized.zf.equalizer');
     }
@@ -35114,6 +35134,7 @@ function (_Plugin) {
 /**
  * Default settings for plugin
  */
+
 
 Equalizer.defaults = {
   /**
@@ -35340,6 +35361,7 @@ function (_Plugin) {
        * @event Interchange#replaced
        */
       // this.$element.trigger('replaced.zf.interchange');
+
     }
     /**
      * Destroys an instance of interchange.
@@ -35358,6 +35380,7 @@ function (_Plugin) {
 /**
  * Default settings for plugin
  */
+
 
 Interchange.defaults = {
   /**
@@ -35500,6 +35523,7 @@ function (_Plugin) {
 /**
  * Default settings for plugin.
  */
+
 
 SmoothScroll.defaults = {
   /**
@@ -35796,6 +35820,7 @@ function (_Plugin) {
 /**
  * Default settings for plugin
  */
+
 
 Magellan.defaults = {
   /**
@@ -36230,6 +36255,7 @@ function (_Plugin) {
        * @event Offcanvas#opened
        */
 
+
       this.$element.trigger('opened.zf.offcanvas');
     }
     /**
@@ -36536,6 +36562,7 @@ function (_Plugin) {
         onImagesLoaded($images, this._prepareForOrbit.bind(this));
       } else {
         this._prepareForOrbit(); //hehe
+
       }
 
       if (this.options.bullets) {
@@ -36632,6 +36659,7 @@ function (_Plugin) {
         if (cb) {
           cb(max);
         } //fire callback with max height dimension.
+
       }
     }
     /**
@@ -36844,6 +36872,7 @@ function (_Plugin) {
             if (_this.options.autoPlay && !_this.timer.isPaused) {
               _this.timer.restart();
             } //do stuff?
+
           });
         } else {
           $curSlide.removeClass('is-active is-in').removeAttr('aria-live').hide();
@@ -36857,6 +36886,7 @@ function (_Plugin) {
         * Triggers when the slide has finished animating in.
         * @event Orbit#slidechange
         */
+
 
         this.$element.trigger('slidechange.zf.orbit', [$newSlide]);
       }
@@ -37730,6 +37760,7 @@ function (_Plugin) {
        * @event Reveal#open
        */
 
+
       this.$element.trigger('open.zf.reveal');
     }
     /**
@@ -37860,6 +37891,7 @@ function (_Plugin) {
 
         if (__WEBPACK_IMPORTED_MODULE_0_jquery___default()('.reveal:visible').length === 0) {
           _this._removeGlobalClasses(); // also remove .is-reveal-open from the html element when there is no opened reveal
+
         }
 
         Keyboard.releaseFocus(_this.$element);
@@ -37872,12 +37904,14 @@ function (_Plugin) {
         * @event Reveal#closed
         */
 
+
         _this.$element.trigger('closed.zf.reveal');
       }
       /**
       * Resets the modal content
       * This prevents a running video to keep going in the background
       */
+
 
       if (this.options.resetOnClose) {
         this.$element.html(this.$element.html());
@@ -37937,6 +37971,7 @@ function (_Plugin) {
 
       if (__WEBPACK_IMPORTED_MODULE_0_jquery___default()('.reveal:visible').length === 0) {
         this._removeGlobalClasses(); // also remove .is-reveal-open from the html element when there is no opened reveal
+
       }
     }
   }]);
@@ -38318,14 +38353,11 @@ function (_Plugin) {
           lOrT = vert ? 'top' : 'left',
           handleDim = $hndl[0].getBoundingClientRect()[hOrW],
           elemDim = this.$element[0].getBoundingClientRect()[hOrW],
-
-      //percentage of bar min/max value based on click or drag point
+          //percentage of bar min/max value based on click or drag point
       pctOfBar = this._pctOfBar(location),
-
-      //number of actual pixels to shift the handle, based on the percentage obtained above
+          //number of actual pixels to shift the handle, based on the percentage obtained above
       pxToMove = (elemDim - handleDim) * pctOfBar,
-
-      //percentage of bar to shift the handle
+          //percentage of bar to shift the handle
       movement = (percent(pxToMove, elemDim) * 100).toFixed(this.options.decimal); //fixing the decimal value for the location number, is passed to other methods as a fixed floating-point value
 
 
@@ -38338,11 +38370,9 @@ function (_Plugin) {
 
       if (isDbl) {
         var isLeftHndl = this.handles.index($hndl) === 0,
-
-        //empty variable, will be used for min-height/width for fill bar
+            //empty variable, will be used for min-height/width for fill bar
         dim,
-
-        //percentage w/h of the handle compared to the slider bar
+            //percentage w/h of the handle compared to the slider bar
         handlePct = ~~(percent(handleDim, elemDim) * 100); //if left handle, the math is slightly different than if it's the right handle, and the left/top property needs to be changed for the fill bar
 
         if (isLeftHndl) {
@@ -38355,6 +38385,7 @@ function (_Plugin) {
           if (cb && typeof cb === 'function') {
             cb();
           } //this is only needed for the initialization of 2 handled sliders
+
         } else {
           //just caching the value of the left/bottom handle's left/top property
           var handlePos = parseFloat(this.$handle[0].style[lOrT]); //calculate the new min-height/width for the fill bar. Use isNaN to prevent false positives for numbers <= 0
@@ -39293,8 +39324,7 @@ function (_Plugin) {
           mBtm = emCalc(this.options.marginBottom),
           topPoint = this.points ? this.points[0] : this.$anchor.offset().top,
           bottomPoint = this.points ? this.points[1] : topPoint + this.anchorHeight,
-
-      // topPoint = this.$anchor.offset().top || this.points[0],
+          // topPoint = this.$anchor.offset().top || this.points[0],
       // bottomPoint = topPoint + this.anchorHeight || this.points[1],
       winHeight = window.innerHeight;
 
@@ -39605,6 +39635,7 @@ function (_Plugin) {
            * @event Tabs#deeplink
            */
 
+
           _this2.$element.trigger('deeplink.zf.tabs', [$link, $anchor]);
         }
       }; //use browser to open a tab, if it exists in this tabset
@@ -39755,6 +39786,7 @@ function (_Plugin) {
        * @event Tabs#change
        */
 
+
       this.$element.trigger('change.zf.tabs', [$target, $targetContent]); //fire to children a mutation event
 
       $targetContent.find("[data-mutate]").trigger("mutateme.zf.trigger");
@@ -39812,6 +39844,7 @@ function (_Plugin) {
         * Fires when the plugin has successfully collapsed tabs.
         * @event Tabs#collapse
         */
+
 
         this.$element.trigger('collapse.zf.tabs', [$activeTab]);
       }
@@ -40425,7 +40458,7 @@ function (_Positionable) {
         this.$element.on('mousedown.zf.tooltip', function (e) {
           e.stopImmediatePropagation();
 
-          if (_this.isClick) ;else {
+          if (_this.isClick) ; else {
             _this.isClick = true;
 
             if ((_this.options.disableHover || !_this.$element.attr('tabindex')) && !_this.isActive) {
@@ -40989,6 +41022,7 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
 /* harmony default export */ __webpack_exports__["default"] = (Foundation);
 
 //# sourceMappingURL=foundation.esm.js.map
+
 
 /***/ }),
 /* 20 */
@@ -56881,7 +56915,7 @@ var content = __webpack_require__(46);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("e6ea095e", content, false, {});
+var update = __webpack_require__(2)("761092eb", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -57037,7 +57071,7 @@ var content = __webpack_require__(51);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("6a844ac6", content, false, {});
+var update = __webpack_require__(2)("203887aa", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -57301,7 +57335,7 @@ var content = __webpack_require__(57);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("351bbf7e", content, false, {});
+var update = __webpack_require__(2)("8a66534a", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -57498,7 +57532,7 @@ var content = __webpack_require__(62);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("92e9253c", content, false, {});
+var update = __webpack_require__(2)("e6f10af0", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -57622,7 +57656,7 @@ var content = __webpack_require__(66);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("715deadf", content, false, {});
+var update = __webpack_require__(2)("479c679c", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -57732,7 +57766,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
                 // 为每个咖啡店创建点标记
                 var marker = new AMap.Marker({
-                    position: AMap.LngLat(parseFloat(this.cafes[i].latitude), parseFloat(this.cafes[i].longitude)),
+                    position: new AMap.LngLat(parseFloat(this.cafes[i].latitude), parseFloat(this.cafes[i].longitude)),
                     title: this.cafes[i].name,
                     icon: icon,
                     map: this.map
@@ -57887,7 +57921,7 @@ var content = __webpack_require__(72);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("6bb5069d", content, false, {});
+var update = __webpack_require__(2)("9a3b3b7a", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -57925,7 +57959,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\nspan.validation{\n  color: red;\n  display: block;\n}", ""]);
+exports.push([module.i, "\r\nspan.validation{\r\n  color: red;\r\n  display: block;\r\n}", ""]);
 
 // exports
 
@@ -57984,33 +58018,64 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
             name: '',
-            address: '',
-            city: '',
-            state: '',
-            zip: '',
+            locations: [],
+            website: '',
+            description: '',
+            roaster: false,
             validations: {
                 name: {
                     is_valid: true,
                     text: ''
                 },
-                address: {
+                locations: [],
+                oneLocation: {
                     is_valid: true,
                     text: ''
                 },
-                city: {
-                    is_valid: true,
-                    text: ''
-                },
-                state: {
-                    is_valid: true,
-                    text: ''
-                },
-                zip: {
+                website: {
                     is_valid: true,
                     text: ''
                 }
@@ -58024,10 +58089,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             if (this.validateNewCafe()) {
                 this.$store.dispatch('addCafe', {
                     name: this.name,
-                    address: this.address,
-                    city: this.city,
-                    state: this.state,
-                    zip: this.zip
+                    locations: this.locations,
+                    website: this.website,
+                    description: this.description,
+                    roaster: this.roaster
                 });
             }
         },
@@ -58045,47 +58110,141 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 this.validations.name.text = '';
             }
 
-            // 确保 address 字段不为空
-            if (this.address.trim() === '') {
-                validNewCafeForm = false;
-                this.validations.address.is_valid = false;
-                this.validations.address.text = '请输入咖啡店的地址!';
-            } else {
-                this.validations.address.is_valid = true;
-                this.validations.address.text = '';
+            //遍历位置信息
+            for (var index in this.locations) {
+                if (this.locations.hasOwnProperty(index)) {
+                    // 确保地址字段不为空
+                    if (this.locations[index].address.trim() === '') {
+                        validNewCafeForm = false;
+                        this.validations.locations[index].address.is_valid = false;
+                        this.validations.locations[index].address.text = 'Please enter an address for the new cafe!';
+                    } else {
+                        this.validations.locations[index].address.is_valid = true;
+                        this.validations.locations[index].address.text = '';
+                    }
+                }
+
+                // 确保城市字段不为空
+                if (this.locations[index].city.trim() === '') {
+                    validNewCafeForm = false;
+                    this.validations.locations[index].city.is_valid = false;
+                    this.validations.locations[index].city.text = 'Please enter a city for the new cafe!';
+                } else {
+                    this.validations.locations[index].city.is_valid = true;
+                    this.validations.locations[index].city.text = '';
+                }
+
+                // 确保省份字段不为空
+                if (this.locations[index].state.trim() === '') {
+                    validNewCafeForm = false;
+                    this.validations.locations[index].state.is_valid = false;
+                    this.validations.locations[index].state.text = 'Please enter a state for the new cafe!';
+                } else {
+                    this.validations.locations[index].state.is_valid = true;
+                    this.validations.locations[index].state.text = '';
+                }
+
+                // 确保邮编字段不为空
+                if (this.locations[index].zip.trim() === '' || !this.locations[index].zip.match(/(^\d{6}$)/)) {
+                    validNewCafeForm = false;
+                    this.validations.locations[index].zip.is_valid = false;
+                    this.validations.locations[index].zip.text = 'Please enter a valid zip code for the new cafe!';
+                } else {
+                    this.validations.locations[index].zip.is_valid = true;
+                    this.validations.locations[index].zip.text = '';
+                }
             }
 
-            //  确保 city 字段不为空
-            if (this.city.trim() === '') {
+            // 确保网址是有效的 URL
+            if (this.website.trim !== '' && !this.website.match(/^((https?):\/\/)?([w|W]{3}\.)+[a-zA-Z0-9\-\.]{3,}\.[a-zA-Z]{2,}(\.[a-zA-Z]{2,})?$/)) {
                 validNewCafeForm = false;
-                this.validations.city.is_valid = false;
-                this.validations.city.text = '请输入咖啡店所在城市!';
+                this.validations.website.is_valid = false;
+                this.validations.website.text = '请输入有效的网址 URL';
             } else {
-                this.validations.city.is_valid = true;
-                this.validations.city.text = '';
-            }
-
-            //  确保 state 字段不为空
-            if (this.state.trim() === '') {
-                validNewCafeForm = false;
-                this.validations.state.is_valid = false;
-                this.validations.state.text = '请输入咖啡店所在省份!';
-            } else {
-                this.validations.state.is_valid = true;
-                this.validations.state.text = '';
-            }
-
-            // 确保 zip 字段不为空且格式正确
-            if (this.zip.trim() === '' || !this.zip.match(/(^\d{6}$)/)) {
-                validNewCafeForm = false;
-                this.validations.zip.is_valid = false;
-                this.validations.zip.text = '请输入有效的邮编地址!';
-            } else {
-                this.validations.zip.is_valid = true;
-                this.validations.zip.text = '';
+                this.validations.website.is_valid = true;
+                this.validations.website.text = '';
             }
 
             return validNewCafeForm;
+        },
+
+        addLocation: function addLocation() {
+            this.locations.push({ name: '', address: '', city: '', state: '', zip: '', methodsAvailable: [] });
+            this.validations.locations.push({
+                address: {
+                    is_valid: true,
+                    text: ''
+                },
+                city: {
+                    is_valid: true,
+                    text: ''
+                },
+                state: {
+                    is_valid: true,
+                    text: ''
+                },
+                zip: {
+                    is_valid: true,
+                    text: ''
+                }
+            });
+        },
+        clearForm: function clearForm() {
+            this.name = '';
+            this.locations = [];
+            this.website = '';
+            this.description = '';
+            this.roaster = false;
+            this.validations = {
+                name: {
+                    is_valid: true,
+                    text: ''
+                },
+                locations: [],
+                oneLocation: {
+                    is_valid: true,
+                    text: ''
+                },
+                website: {
+                    is_valid: true,
+                    text: ''
+                }
+            };
+
+            this.addLocation();
+        },
+        removeLocation: function removeLocation(key) {
+            this.locations.splice(key, 1);
+            this.validations.locations.splice(key, 1);
+        }
+    },
+
+    created: function created() {
+        this.addLocation();
+    },
+
+
+    computed: {
+        brewMethods: function brewMethods() {
+            return this.$store.getters.getBrewMethods;
+        },
+        addCafeStatus: function addCafeStatus() {
+            return this.$store.getters.getCafeAddStatus;
+        }
+    },
+
+    watch: {
+        'addCafeStatus': function addCafeStatus() {
+            if (this.addCafeStatus === 2) {
+                // 添加成功
+                this.clearForm();
+                $("#cafe-added-successfully").show().delay(5000).fadeOut();
+            }
+
+            if (this.addCafeStatus === 3) {
+                // 添加失败
+                $("#cafe-added-unsuccessfully").show().delay(5000).fadeOut();
+            }
         }
     }
 
@@ -58101,238 +58260,482 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "page" }, [
     _c("form", [
-      _c("div", { staticClass: "grid-container" }, [
-        _c("div", { staticClass: "grid-x grid-padding-x" }, [
-          _c("div", { staticClass: "large-12 medium-12 small-12 cell" }, [
-            _c("label", [
-              _vm._v("Name\n                        "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.name,
-                    expression: "name"
-                  }
-                ],
-                attrs: { type: "text", placeholder: "咖啡店名" },
-                domProps: { value: _vm.name },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
+      _c(
+        "div",
+        { staticClass: "grid-container" },
+        [
+          _c("div", { staticClass: "grid-x grid-padding-x" }, [
+            _c("div", { staticClass: "large-12 medium-12 small-12 cell" }, [
+              _c("label", [
+                _vm._v("名称\n                        "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.name,
+                      expression: "name"
                     }
-                    _vm.name = $event.target.value
+                  ],
+                  attrs: { type: "text", placeholder: "咖啡店名" },
+                  domProps: { value: _vm.name },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.name = $event.target.value
+                    }
                   }
-                }
-              })
+                })
+              ]),
+              _vm._v(" "),
+              _c(
+                "span",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: !_vm.validations.name.is_valid,
+                      expression: "!validations.name.is_valid"
+                    }
+                  ],
+                  staticClass: "validation"
+                },
+                [_vm._v(_vm._s(_vm.validations.name.text))]
+              )
             ]),
             _vm._v(" "),
-            _c(
-              "span",
-              {
-                directives: [
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: !_vm.validations.name.is_valid,
-                    expression: "!validations.name.is_valid"
-                  }
-                ],
-                staticClass: "validation"
-              },
-              [_vm._v(_vm._s(_vm.validations.name.text))]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "large-12 medium-12 small-12 cell" }, [
-            _c("label", [
-              _vm._v("Address\n                        "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.address,
-                    expression: "address"
-                  }
-                ],
-                attrs: { type: "text", placeholder: "地址" },
-                domProps: { value: _vm.address },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
+            _c("div", { staticClass: "large-12 medium-12 small-12 cell" }, [
+              _c("label", [
+                _vm._v("网址\n                        "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.website,
+                      expression: "website"
                     }
-                    _vm.address = $event.target.value
+                  ],
+                  attrs: { type: "text", placeholder: "网址" },
+                  domProps: { value: _vm.website },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.website = $event.target.value
+                    }
                   }
-                }
-              })
+                })
+              ]),
+              _vm._v(" "),
+              _c(
+                "span",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: !_vm.validations.website.is_valid,
+                      expression: "!validations.website.is_valid"
+                    }
+                  ],
+                  staticClass: "validation"
+                },
+                [_vm._v(_vm._s(_vm.validations.website.text))]
+              )
             ]),
             _vm._v(" "),
-            _c(
-              "span",
-              {
-                directives: [
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: !_vm.validations.address.is_valid,
-                    expression: "!validations.address.is_valid"
+            _c("div", { staticClass: "large-12 medium-12 small-12 cell" }, [
+              _c("label", [
+                _vm._v("简介\n                        "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.description,
+                      expression: "description"
+                    }
+                  ],
+                  attrs: { type: "text", placeholder: "简介" },
+                  domProps: { value: _vm.description },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.description = $event.target.value
+                    }
                   }
-                ],
-                staticClass: "validation"
-              },
-              [_vm._v(_vm._s(_vm.validations.address.text))]
-            )
+                })
+              ])
+            ])
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "large-12 medium-12 small-12 cell" }, [
-            _c("label", [
-              _vm._v("City\n                        "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.city,
-                    expression: "city"
-                  }
-                ],
-                attrs: { type: "text", placeholder: "城市" },
-                domProps: { value: _vm.city },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
+          _vm._l(_vm.locations, function(location, key) {
+            return _c("div", { staticClass: "grid-x grid-padding-x" }, [
+              _vm._m(0, true),
+              _vm._v(" "),
+              _c("div", { staticClass: "large-6 medium-6 small-12 cell" }, [
+                _c("label", [
+                  _vm._v("位置名称\n                        "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.locations[key].name,
+                        expression: "locations[key].name"
+                      }
+                    ],
+                    attrs: { type: "text", placeholder: "位置名称" },
+                    domProps: { value: _vm.locations[key].name },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.locations[key],
+                          "name",
+                          $event.target.value
+                        )
+                      }
                     }
-                    _vm.city = $event.target.value
+                  })
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "large-6 medium-6 small-12 cell" }, [
+                _c("label", [
+                  _vm._v("详细地址\n                        "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.locations[key].address,
+                        expression: "locations[key].address"
+                      }
+                    ],
+                    attrs: { type: "text", placeholder: "详细地址" },
+                    domProps: { value: _vm.locations[key].address },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.locations[key],
+                          "address",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c(
+                  "span",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: !_vm.validations.locations[key].address.is_valid,
+                        expression:
+                          "!validations.locations[key].address.is_valid"
+                      }
+                    ],
+                    staticClass: "validation"
+                  },
+                  [_vm._v(_vm._s(_vm.validations.locations[key].address.text))]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "large-6 medium-6 small-12 cell" }, [
+                _c("label", [
+                  _vm._v("城市\n                        "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.locations[key].city,
+                        expression: "locations[key].city"
+                      }
+                    ],
+                    attrs: { type: "text", placeholder: "城市" },
+                    domProps: { value: _vm.locations[key].city },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.locations[key],
+                          "city",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c(
+                  "span",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: !_vm.validations.locations[key].city.is_valid,
+                        expression: "!validations.locations[key].city.is_valid"
+                      }
+                    ],
+                    staticClass: "validation"
+                  },
+                  [_vm._v(_vm._s(_vm.validations.locations[key].city.text))]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "large-6 medium-6 small-12 cell" }, [
+                _c("label", [
+                  _vm._v("省份\n                        "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.locations[key].state,
+                        expression: "locations[key].state"
+                      }
+                    ],
+                    attrs: { type: "text", placeholder: "省份" },
+                    domProps: { value: _vm.locations[key].state },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.locations[key],
+                          "state",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c(
+                  "span",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: !_vm.validations.locations[key].state.is_valid,
+                        expression: "!validations.locations[key].state.is_valid"
+                      }
+                    ],
+                    staticClass: "validation"
+                  },
+                  [_vm._v(_vm._s(_vm.validations.locations[key].state.text))]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "large-6 medium-6 small-12 cell" }, [
+                _c("label", [
+                  _vm._v("邮编\n                        "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.locations[key].zip,
+                        expression: "locations[key].zip"
+                      }
+                    ],
+                    attrs: { type: "text", placeholder: "邮编" },
+                    domProps: { value: _vm.locations[key].zip },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.locations[key], "zip", $event.target.value)
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c(
+                  "span",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: !_vm.validations.locations[key].zip.is_valid,
+                        expression: "!validations.locations[key].zip.is_valid"
+                      }
+                    ],
+                    staticClass: "validation"
+                  },
+                  [_vm._v(_vm._s(_vm.validations.locations[key].zip.text))]
+                )
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "large-12 medium-12 small-12 cell" },
+                [
+                  _c("label", [_vm._v("支持的冲泡方法")]),
+                  _vm._v(" "),
+                  _vm._l(_vm.brewMethods, function(brewMethod) {
+                    return _c("span", { staticClass: "brew-method" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.locations[key].methodsAvailable,
+                            expression: "locations[key].methodsAvailable"
+                          }
+                        ],
+                        attrs: {
+                          id: "brew-method-" + brewMethod.id + "-" + key,
+                          type: "checkbox"
+                        },
+                        domProps: {
+                          value: brewMethod.id,
+                          checked: Array.isArray(
+                            _vm.locations[key].methodsAvailable
+                          )
+                            ? _vm._i(
+                                _vm.locations[key].methodsAvailable,
+                                brewMethod.id
+                              ) > -1
+                            : _vm.locations[key].methodsAvailable
+                        },
+                        on: {
+                          change: function($event) {
+                            var $$a = _vm.locations[key].methodsAvailable,
+                              $$el = $event.target,
+                              $$c = $$el.checked ? true : false
+                            if (Array.isArray($$a)) {
+                              var $$v = brewMethod.id,
+                                $$i = _vm._i($$a, $$v)
+                              if ($$el.checked) {
+                                $$i < 0 &&
+                                  _vm.$set(
+                                    _vm.locations[key],
+                                    "methodsAvailable",
+                                    $$a.concat([$$v])
+                                  )
+                              } else {
+                                $$i > -1 &&
+                                  _vm.$set(
+                                    _vm.locations[key],
+                                    "methodsAvailable",
+                                    $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                                  )
+                              }
+                            } else {
+                              _vm.$set(
+                                _vm.locations[key],
+                                "methodsAvailable",
+                                $$c
+                              )
+                            }
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "label",
+                        {
+                          attrs: {
+                            for: "brew-method-" + brewMethod.id + "-" + key
+                          }
+                        },
+                        [_vm._v(_vm._s(brewMethod.method))]
+                      )
+                    ])
+                  })
+                ],
+                2
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "large-12 medium-12 small-12 cell" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "button",
+                    on: {
+                      click: function($event) {
+                        return _vm.removeLocation(key)
+                      }
+                    }
+                  },
+                  [_vm._v("移除位置")]
+                )
+              ])
+            ])
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "grid-x grid-padding-x" }, [
+            _c("div", { staticClass: "large-12 medium-12 small-12 cell" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "button",
+                  on: {
+                    click: function($event) {
+                      return _vm.addLocation()
+                    }
                   }
-                }
-              })
+                },
+                [_vm._v("新增位置")]
+              )
             ]),
             _vm._v(" "),
-            _c(
-              "span",
-              {
-                directives: [
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: !_vm.validations.city.is_valid,
-                    expression: "!validations.city.is_valid"
-                  }
-                ],
-                staticClass: "validation"
-              },
-              [_vm._v(_vm._s(_vm.validations.city.text))]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "large-12 medium-12 small-12 cell" }, [
-            _c("label", [
-              _vm._v("State\n                        "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.state,
-                    expression: "state"
-                  }
-                ],
-                attrs: { type: "text", placeholder: "省份" },
-                domProps: { value: _vm.state },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
+            _c("div", { staticClass: "large-12 medium-12 small-12 cell" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "button",
+                  on: {
+                    click: function($event) {
+                      return _vm.submitNewCafe()
                     }
-                    _vm.state = $event.target.value
                   }
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c(
-              "span",
-              {
-                directives: [
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: !_vm.validations.state.is_valid,
-                    expression: "!validations.state.is_valid"
-                  }
-                ],
-                staticClass: "validation"
-              },
-              [_vm._v(_vm._s(_vm.validations.state.text))]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "large-12 medium-12 small-12 cell" }, [
-            _c("label", [
-              _vm._v("Zip\n                        "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.zip,
-                    expression: "zip"
-                  }
-                ],
-                attrs: { type: "text", placeholder: "邮编" },
-                domProps: { value: _vm.zip },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.zip = $event.target.value
-                  }
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c(
-              "span",
-              {
-                directives: [
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: !_vm.validations.zip.is_valid,
-                    expression: "!validations.zip.is_valid"
-                  }
-                ],
-                staticClass: "validation"
-              },
-              [_vm._v(_vm._s(_vm.validations.zip.text))]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "large-12 medium-12 small-12 cell" }, [
-            _c(
-              "a",
-              {
-                staticClass: "button",
-                on: {
-                  click: function($event) {
-                    return _vm.submitNewCafe()
-                  }
-                }
-              },
-              [_vm._v("提交")]
-            )
+                },
+                [_vm._v("提交表单")]
+              )
+            ])
           ])
-        ])
-      ])
+        ],
+        2
+      )
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "large-12 medium-12 small-12 cell" }, [
+      _c("h3", [_vm._v("位置")])
+    ])
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -58404,7 +58807,7 @@ var content = __webpack_require__(78);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("734f2b79", content, false, {});
+var update = __webpack_require__(2)("48a9e193", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -60738,7 +61141,8 @@ var cafes = {
         cafes: [],
         cafesLoadStatus: 0,
         cafe: {},
-        cafeLoadStatus: 0
+        cafeLoadStatus: 0,
+        cafeAddStatus: 0
     },
 
     actions: {
@@ -60774,7 +61178,8 @@ var cafes = {
                 dispatch = _ref3.dispatch;
 
             commit('setCafeAddStatus', 1);
-            __WEBPACK_IMPORTED_MODULE_0__api_cafe_js__["a" /* default */].postAddNewCafe(data.name, data.address, data.city, data.state, data.zip).then(function (response) {
+
+            __WEBPACK_IMPORTED_MODULE_0__api_cafe_js__["a" /* default */].postAddNewCafe(data.name, data.locations, data.website, data.description, data.roaster).then(function (response) {
                 commit('setCafeAddStatus', 2);
                 dispatch('loadCafes');
             }).catch(function () {
@@ -60836,13 +61241,13 @@ var cafes = {
         return axios.get(__WEBPACK_IMPORTED_MODULE_0__config_js__["a" /* ROAST_CONFIG */].API_URL + '/cafes/' + cafeID);
     },
 
-    postAddNewCafe: function postAddNewCafe(name, address, city, state, zip) {
+    postAddNewCafe: function postAddNewCafe(name, locations, website, description, roaster) {
         return axios.post(__WEBPACK_IMPORTED_MODULE_0__config_js__["a" /* ROAST_CONFIG */].API_URL + '/cafes', {
             name: name,
-            address: address,
-            city: city,
-            state: state,
-            zip: zip
+            locations: locations,
+            website: website,
+            description: description,
+            roaster: roaster
         });
     }
 });
