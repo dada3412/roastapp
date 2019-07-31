@@ -18,7 +18,9 @@ Auth::routes();
 
 Route::get('/', 'Web\AppController@getApp')
     ->middleware('auth');
-Route::get('geocode', function () {
-    return \App\Utilities\GaodeMaps::geocodeAddress('天城路1号', '杭州', '浙江');
+Route::get('redis', function () {
+    \Redis::set('name','niko');
+    //return \App\Utilities\GaodeMaps::geocodeAddress('天城路1号', '杭州', '浙江');
 });
+Route::get('test','\App\Http\Controllers\Web\TestController@test');
 Route::get('/cafe/{id}', 'API\CafesController@getCafe');

@@ -42,7 +42,11 @@
     </span>
 </template>
 <script>
+    import Loader from '../../components/global/Loader.vue';
     export default {
+        components: {
+          Loader
+        },
         computed: {
             cafeLoadStatus() {
                 return this.$store.getters.getCafeLoadStatus;
